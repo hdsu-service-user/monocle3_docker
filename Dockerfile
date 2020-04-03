@@ -1,4 +1,5 @@
-FROM rocker/tidyverse
+FROM hdsu/r_tensorflow2
+#FROM rocker/tidyverse
 #FROM hdsu/bratwurst_example
 
 LABEL maintainer="Andres Quintero a.quintero@dkfz-heidelberg.de"
@@ -16,3 +17,4 @@ RUN R -e  "BiocManager::install(c('BiocGenerics', 'DelayedArray', 'DelayedMatrix
 #Now, install monocle3 through the cole-trapnell-lab GitHub, execute:
 RUN R -e "devtools::install_github('cole-trapnell-lab/leidenbase')"
 RUN R -e "devtools::install_github('cole-trapnell-lab/monocle3')"
+RUN R -e "devtools::install_github('hdsu-bioquant/bratwurst', ref='dev_hdsu_lite') "
